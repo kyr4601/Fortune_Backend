@@ -18,10 +18,6 @@ public class UserRepository {
         this.em = em;
     }
 
-    public void save(User user) {
-        em.persist(user);
-    }
-
     public User findOne(UUID id) {
         return em.find(User.class, id);
     }
