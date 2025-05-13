@@ -1,5 +1,7 @@
 package com.fortune.fortune.service;
 
+import com.fortune.fortune.common.exception.CustomException;
+import com.fortune.fortune.common.exception.ErrorCode;
 import com.fortune.fortune.domain.User;
 import com.fortune.fortune.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -19,8 +21,12 @@ public class UserService {
     }
 
     @Transactional
-    public User fineOne(UUID id){
-        return userRepository.findOne(id);
+    public User findUser(UUID id){
+        User user = userRepository.findOne(id);
+        if (user == null) {
+            throw new CustomException(ErrorCode.NOT_FOUND);
+        }
+        return user;
     }
 
     public List<User> findUsers(){
