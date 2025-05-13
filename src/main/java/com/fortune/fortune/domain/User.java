@@ -3,6 +3,7 @@ package com.fortune.fortune.domain;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "users")
 public class User {
 
     @Id
