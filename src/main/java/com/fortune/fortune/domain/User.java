@@ -32,6 +32,8 @@ public class User {
 
     private String gender;
 
+    private String email;
+
     /*@AllArgsConstructor lombok의 해당 어노테이션으로 대체 가능함
     public User(UUID id, String nickname, LocalDate birthDate, LocalTime birthTime, String gender) {
         this.id = id;

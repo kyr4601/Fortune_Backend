@@ -2,13 +2,12 @@ package com.fortune.fortune.repository;
 
 import com.fortune.fortune.domain.User;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.UUID;
 
+//JPA 내부 핵심인 EntityManager를 직접 사용하고, Spring Data JPA의 자동 구현은 안 쓴 방식.
 @Repository
 public class UserRepository {
 
@@ -20,6 +19,10 @@ public class UserRepository {
 
     public User findOne(UUID id) {
         return em.find(User.class, id);
+    }
+
+    public User findByEmail(String email){
+        return em.find(User.class, email);
     }
 
     public List<User> findAll() {
